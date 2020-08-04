@@ -21,3 +21,10 @@ Semantic segmenator model of deeplabv3/fcn resnet 101 has been combined with Edg
 * NVIDIA GPU + CUDA cuDNN (optional)
 
 ## Installation
+* clone this repo 
+```
+https://github.com/sujaykhandekar/Remove-objects-pytorch.git
+```
+```
+cd Remove-objects-pytorch
+```
