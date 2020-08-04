@@ -77,6 +77,7 @@ Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International.]
 Except where otherwise noted, this content is published under a [CC BY-NC](https://github.com/knazeri/edge-connect) license, which means that you can copy, remix, transform and build upon the content as long as you do not use the material for commercial purposes and give appropriate credit and provide a link to the license.
 
 ## Citation
+```
 @inproceedings{nazeri2019edgeconnect,
   title={EdgeConnect: Generative Image Inpainting with Adversarial Edge Learning},
   author={Nazeri, Kamyar and Ng, Eric and Joseph, Tony and Qureshi, Faisal and Ebrahimi, Mehran},
@@ -91,3 +92,4 @@ Except where otherwise noted, this content is published under a [CC BY-NC](https
   month = {Oct},
   year = {2019}
 }
+```
