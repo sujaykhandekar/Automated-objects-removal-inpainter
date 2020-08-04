@@ -47,7 +47,9 @@ For quick prediction you can run this command
 python test.py --input ./examples/my_small_data --output ./checkpoints/resultsfinal --remove 3 15
 ```
 It will take sample images in the ./examples/my_small_data  directory and will create and produce result in directory ./checkpoints/resultsfinal. You can replace these input /output directories with your desired ones.
-numbers after remove specifies objects to be removed in the images. ABove command will remove 3(bird) and 15(people) from the images. Check segmentation-classes.txt for all removal options along with it's number.
+numbers after --remove specifies objects to be removed in the images. ABove command will remove 3(bird) and 15(people) from the images. Check segmentation-classes.txt for all removal options along with it's number.
+
+Output images will all be 256x256. 
 
 for better quality but slower runtime you can use  this command
 ```
@@ -57,11 +59,35 @@ It will run the segmentation model on cpu. It will be 5 times slower than on gpu
 For other options inclduing different segmentation model and EdgeConnect parameters to change please make corresponding modifications in .checkpoints/config.yml file
 
 ## training
-For trainig your own segmentation model youc can refer to this [repo](https://github.com/CSAILVision/semantic-segmentation-pytorch) and replace .src/segmentor_fcn.py with your model
+For trainig your own segmentation model you can refer to this [repo](https://github.com/CSAILVision/semantic-segmentation-pytorch) and replace .src/segmentor_fcn.py with your model.
+
 For training Edgeconnect model plaese refer to orignal [EdgeConnect repo](https://github.com/knazeri/edge-connect)  after training you can copy your model weights in .checkpoints/ 
 
 ## some results
 <img src="https://user-images.githubusercontent.com/31131069/89245607-2db8eb80-d5d7-11ea-94e1-e16ac6be8009.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245666-4f19d780-d5d7-11ea-8a0e-12ffc9367cba.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245571-1974ee80-d5d7-11ea-91ce-e6c95ea8d8fc.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245452-d450bc80-d5d6-11ea-968a-b0fd60c4d3ad.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245970-18908c80-d5d8-11ea-9e99-b91245052870.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245711-6a84e280-d5d7-11ea-8eea-fd718b500799.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89246127-6a391700-d5d8-11ea-85a3-20d65ab3a571.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245762-8b4d3800-d5d7-11ea-89f6-16c21142b2bd.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245794-a5871600-d5d7-11ea-8426-d3bddeed3dd5.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245812-b2a40500-d5d7-11ea-80e4-6a65c9fd3ae7.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245841-c3547b00-d5d7-11ea-8fa2-aecd9dceef0a.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245870-ce0f1000-d5d7-11ea-87a2-0ded6c355fe5.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245885-dd8e5900-d5d7-11ea-8aec-c1a35b7a604e.png" width="23%"></img> <img src="https://user-images.githubusercontent.com/31131069/89245898-e5e69400-d5d7-11ea-9147-5467ba36f14b.png" width="23%"></img> 
 
+## Next steps
+*  pretrained EdgeConnect models used in this project are trained on 256 x256 images. To make output images of the same size as input two approaches can be used. You can train your own Edgeconnect model on bigger images.Or you can create subimages of 256x256 for every object detected in the image and then merge them back together after passing through edgeconnect to reconstruct orignal sized image.Similar approach has been used in this [repo](https://github.com/javirk/Person_remover)
+* To detect object not present in segmentation classes , you can train your own segmentation model or you can use pretrained segmentation models from this [repo](https://github.com/CSAILVision/semantic-segmentation-pytorch), which has 150 different categories available.
+* It is also possible to combine opnecv's feature matching and edge prediction from EdgeConnect to highlight and create mask for relvant objects based on single mask created by user. I may try this part myself.
 
+## License
+Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International.](https://creativecommons.org/licenses/by-nc/4.0/)
 
+Except where otherwise noted, this content is published under a [CC BY-NC](https://github.com/knazeri/edge-connect) license, which means that you can copy, remix, transform and build upon the content as long as you do not use the material for commercial purposes and give appropriate credit and provide a link to the license.
+
+## Citation
+@inproceedings{nazeri2019edgeconnect,
+  title={EdgeConnect: Generative Image Inpainting with Adversarial Edge Learning},
+  author={Nazeri, Kamyar and Ng, Eric and Joseph, Tony and Qureshi, Faisal and Ebrahimi, Mehran},
+  journal={arXiv preprint},
+  year={2019},
+}
+
+@InProceedings{Nazeri_2019_ICCV,
+  title = {EdgeConnect: Structure Guided Image Inpainting using Edge Prediction},
+  author = {Nazeri, Kamyar and Ng, Eric and Joseph, Tony and Qureshi, Faisal and Ebrahimi, Mehran},
+  booktitle = {The IEEE International Conference on Computer Vision (ICCV) Workshops},
+  month = {Oct},
+  year = {2019}
+}
