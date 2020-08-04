@@ -31,7 +31,7 @@ cd Automated-objects-removal-inpainter
 ```
 pip install -r requirements.txt
 ```
-* Install one of the three pretrained Edgeconnect model from  
+* Install one of the three pretrained Edgeconnect model and copy them in ./checkpoints directory  
 [Plcaes2](https://drive.google.com/drive/folders/1KyXz4W4SAvfsGh3NJ7XgdOv5t46o-8aa) (option 1)
 [CelebA](https://drive.google.com/drive/folders/1nkLOhzWL-w2euo0U6amhz7HVzqNC5rqb) (option 2)
 [Paris-street-view](https://drive.google.com/drive/folders/1cGwDaZqDcqYU7kDuEbMXa9TP3uDJRBR1) (option 3)
@@ -42,3 +42,16 @@ bash ./scripts/download_model.sh
 ```
 
 ## prediction/Test
+For quick prediction you can run this command
+```
+python test.py --input ./examples/my_small_data --output ./checkpoints/resultsfinal --remove 3 15
+```
+It will take sample images in the ./examples/my_small_data  directory and will create and produce result in directory ./checkpoints/resultsfinal. You can replace these input /output directories with your desired ones.
+numbers after remove specifies objects to be removed in the images. ABove command will remove 3(bird) and 15(people) from the images. Check segmentation-classes.txt for all removal options along with it's number.
+
+for better quality but slower runtime you can use  this command
+```
+python test.py --input ./examples/my_small_data --output ./checkpoints/resultsfinal --remove 3 15 --cpu yes
+```
+It will run the segmentation model on cpu. It will be 5 times slower than on gpu (default)
+For other options inclduing different segmentation model and EdgeConnect parameters to change please make corresponding modifications in .checkpoints/config.yml file
