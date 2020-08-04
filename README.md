@@ -42,7 +42,7 @@ bash ./scripts/download_model.sh
 ```
 
 ## prediction/Test
-For quick prediction you can run this command
+For quick prediction you can run this command. If you don't have cuda/gpu please run the second command.
 ```
 python test.py --input ./examples/my_small_data --output ./checkpoints/resultsfinal --remove 3 15
 ```
