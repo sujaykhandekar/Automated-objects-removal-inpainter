@@ -24,7 +24,5 @@ Semantic segmenator model of deeplabv3/fcn resnet 101 has been combined with Edg
 * clone this repo 
 ```
 https://github.com/sujaykhandekar/Remove-objects-pytorch.git
-```
-```
 cd Remove-objects-pytorch
 ```
