@@ -27,7 +27,10 @@ git clone https://github.com/sujaykhandekar/Automated-objects-removal-inpainter.
 cd Automated-objects-removal-inpainter
 ```
 or alternately downlaod zip file.
-* install latest pytorch version from [https://pytorch.org/](https://pytorch.org/)
+* install pytorch with this command
+```
+conda install pytorch==1.5.1 torchvision==0.6.1 -c pytorch
+```
 * install other python requirements using this command
 ```
 pip install -r requirements.txt
