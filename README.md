@@ -4,7 +4,7 @@ Automated object remover Inpainter is a project that combines Semantic segmentat
 
 This project is capable of removing objects from list of 20 different ones.It can be use as photo editing tool as well as for Data augmentation.
 
-Python 3.7.7 and pytorch 1.5.1 have been used in this project.
+Python 3.8.5 and pytorch 1.5.1 have been used in this project.
 
 ## How does it work?
 
