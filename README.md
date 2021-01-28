@@ -26,7 +26,7 @@ Semantic segmenator model of deeplabv3/fcn resnet 101 has been combined with Edg
 git clone https://github.com/sujaykhandekar/Automated-objects-removal-inpainter.git
 cd Automated-objects-removal-inpainter
 ```
-or alternately downlaod zip file.
+or alternately download zip file.
 * install pytorch with this command
 ```
 conda install pytorch==1.5.1 torchvision==0.6.1 -c pytorch
