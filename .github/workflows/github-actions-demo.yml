@@ -15,3 +15,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: First interaction
+        uses: actions/first-interaction@v1.1.0
+        with:
+          # Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}
+          repo-token: secrets.GITHUB_TOKEN
+          # Comment to post on an individual's first issue
+          issue-message: "first interact congrats"
+          # Comment to post on an individual's first pull request
+          pr-message: "first pull request"
