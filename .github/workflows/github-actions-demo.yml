@@ -6,6 +6,22 @@ on:
     branches: [ master ]
     
 jobs:
+  intro:
+    name: first-interaction
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: First interaction
+      uses: actions/first-interaction@v1.1.0
+      with:
+        # Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        # Comment to post on an individual's first issue
+        issue-message: "first issue"
+        # Comment to post on an individual's first pull request
+        pr-message: "welcome to my repo"
+
+    
   python-testing:
     name: testing
     runs-on: ubuntu-latest
@@ -31,6 +47,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+ 
 #    - name: Test with pytest
 #      run: |
 #        pytest
