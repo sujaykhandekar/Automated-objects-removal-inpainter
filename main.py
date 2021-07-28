@@ -18,7 +18,7 @@ def main(mode=None):
 
 
     # cuda visble devices
-    os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(str(e) for e in config.GPU)
+    os.environ['CUDA_VISIBLE_DEVICES' = ','.join(str(e) for e in config.GPU)
 
 
     # init device
