@@ -63,7 +63,7 @@ def get_activations(images, model, batch_size=64, dims=2048,
        activations of the given tensor when feeding inception with the
        query tensor.
     """
-    model.eval(
+    model.eval()
 
     d0 = images.shape[0]
     if batch_size > d0:
