@@ -14,7 +14,7 @@ def main(mode=None):
 
     """
 
-    config = load_config(mode)
+    config = load_config(mode;
 
 
     # cuda visble devices
