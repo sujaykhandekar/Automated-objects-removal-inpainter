@@ -9,7 +9,7 @@ from src.config import Config
 from src.edge_connect import EdgeConnect
 
 
-def main(mode=None):
+def main(mode=None)
     r"""starts the model
 
     """
