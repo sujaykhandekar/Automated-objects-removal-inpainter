@@ -121,6 +121,7 @@ class EdgeConnect():
                 imsave(masked, os.path.join(self.results_path, fname + '_masked.' + fext))
 
         print('\nEnd test....')
+        return output
 
 
     def log(self, logs):
