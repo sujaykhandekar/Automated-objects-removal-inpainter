@@ -1,0 +1,42 @@
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  # set to true if your model requires a GPU
+  gpu: true
+
+  # a list of ubuntu apt packages to install
+  # system_packages:
+    # - "libgl1-mesa-glx"
+    # - "libglib2.0-0"
+
+  # python version in the form '3.8' or '3.8.12'
+  python_version: "3.8"
+
+  # a list of packages in the format <package-name>==<version>
+  python_packages:
+    - "ipython==7.33.0"
+    # - "numpy==1.19.4"
+    # - "torch==1.11.0"
+    # - "torchvision==0.12.0"
+    - "torch==1.5.1"
+    - "torchvision==0.6.1"
+    - "Pillow==8.0.1"
+
+    - "numpy==1.19.1"
+    - "scipy==1.5.2"
+    - "future==0.18.2"
+    - "matplotlib==3.3.0"
+    # - "pillow==6.2.0"
+    - "opencv-python==4.3.0.36"
+    - "scikit-image==0.17.2"
+    - "pyaml==20.4.0"
+
+  # commands run after the environment is setup
+  run:
+    - "apt-get update && apt-get install -y cmake"
+    # - "sudo apt-get install python python-pip build-essential cmake"
+    # - "pip install tqdm gdown kornia scipy opencv-python dlib moviepy lpips aubio ninja"
+
+# predict.py defines how predictions are run on your model
+predict: "predict.py:Predictor"
