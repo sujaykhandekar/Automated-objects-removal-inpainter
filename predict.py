@@ -51,7 +51,7 @@ def load_config(mode=None, objects_to_remove=None):
     # test mode
     config.MODE = mode
     config.MODEL = 3
-    config.OBJECTS = [int(obj2idx[str(objects_to_remove).split(".")[-1]])]
+    config.OBJECTS = objects_to_remove
     config.SEG_DEVICE = "cuda"
     config.INPUT_SIZE = 256
 
@@ -71,13 +71,18 @@ class Predictor(BasePredictor):
 
     def predict(self, 
         image_path: Path = Input(description="Input image (ideally a square image)"),
-        objects_to_remove: str = Input(choices=["Background", "Aeroplane", "bicycle", "bird", "boat", "bottle", "bus",
-         "car", "cat", "chair", "cow", "dining table", "dog", "horse", "motorbike", "person", 
-         "potted plant", "sheep", "sofa", "train", "tv/monitor"], 
-         description="Object(s) to remove", default=['person']),
+        objects_to_remove: str = Input(description="Object(s) to remove (separate with comma, e.g. car,cat,bird). See full list of names at https://github.com/sujaykhandekar/Automated-objects-removal-inpainter/blob/master/segmentation_classes.txt", default='person,car'),
+
         ) -> Path:
 
-    
+        # format input image
+        image_path = str(image_path)
+        image = Image.open(image_path).convert('RGB') 
+        image.save(image_path) # resave formatted image
+
+        # parse objects to remove
+        objects_to_remove = objects_to_remove.split(',') 
+        objects_to_remove = [obj2idx[x] for x in objects_to_remove]
 
         mode = 2  # 1: train, 2: test, 3: eal
         self.config = load_config(mode, objects_to_remove=objects_to_remove)
@@ -90,10 +95,6 @@ class Predictor(BasePredictor):
         np.random.seed(self.config.SEED)
         random.seed(self.config.SEED)
 
-        # format input image
-        image_path = str(image_path)
-        image = Image.open(image_path).convert('RGB') 
-        image.save(image_path) # resave formatted image
         # save to path 
         self.config.TEST_FLIST = image_path
 
