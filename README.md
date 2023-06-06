@@ -6,7 +6,7 @@
 
 Automated object remover Inpainter is a project that combines Semantic segmentation and EdgeConnect architectures with minor changes in order to remove specified objects from photos. For Semantic Segmentation, the code from pytorch has been adapted, whereas for EdgeConnect, the code has been adapted from [https://github.com/knazeri/edge-connect](https://github.com/knazeri/edge-connect).
 
-This project is capable of removing objects from list of 20 different ones.It can be use as photo editing tool as well as for Data augmentation.
+This project is capable of removing objects from list of 20 different ones.It can be used as photo editing tool as well as for Data augmentation.
 
 Python 3.8.5 and pytorch 1.5.1 have been used in this project.
 
@@ -64,7 +64,7 @@ for better quality but slower runtime you can use  this command
 python test.py --input ./examples/my_small_data --output ./checkpoints/resultsfinal --remove 3 15 --cpu yes
 ```
 It will run the segmentation model on cpu. It will be 5 times slower than on gpu (default)
-For other options inclduing different segmentation model and EdgeConnect parameters to change please make corresponding modifications in .checkpoints/config.yml file
+For other options including different segmentation model and EdgeConnect parameters to change please make corresponding modifications in .checkpoints/config.yml file
 
 ## training
 For trainig your own segmentation model you can refer to this [repo](https://github.com/CSAILVision/semantic-segmentation-pytorch) and replace .src/segmentor_fcn.py with your model.
