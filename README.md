@@ -67,7 +67,7 @@ It will run the segmentation model on cpu. It will be 5 times slower than on gpu
 For other options including different segmentation model and EdgeConnect parameters to change please make corresponding modifications in .checkpoints/config.yml file
 
 ## training
-For trainig your own segmentation model you can refer to this [repo](https://github.com/CSAILVision/semantic-segmentation-pytorch) and replace .src/segmentor_fcn.py with your model.
+For training your own segmentation model you can refer to this [repo](https://github.com/CSAILVision/semantic-segmentation-pytorch) and replace .src/segmentor_fcn.py with your model.
 
 For training Edgeconnect model plaese refer to orignal [EdgeConnect repo](https://github.com/knazeri/edge-connect)  after training you can copy your model weights in .checkpoints/ 
 
