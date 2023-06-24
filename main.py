@@ -30,7 +30,7 @@ def main(mode=None):
 
 
 
-    # set cv2 running threads to 1 (prevents deadlocks with pytorch dataloader)
+    # Set cv2 running threads to 1 (prevents deadlocks with pytorch dataloader)
     cv2.setNumThreads(0)
 
 
